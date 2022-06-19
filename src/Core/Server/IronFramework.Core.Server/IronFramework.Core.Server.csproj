@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AltV.Net.Async" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared.Abstractions\IronFramework.Core.Shared.Abstractions.csproj" />
+    <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared.EventsNames\IronFramework.Core.Shared.EventsNames.csproj" />
+    <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared\IronFramework.Core.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\HelpText\" />
+  </ItemGroup>
+
+	<Target Name="CopyBuildFiles" AfterTargets="build">
+		<ItemGroup>
+			<AllOutputBuildFiles Include="$(OutputPath)\**\*.*" />
+		</ItemGroup>
+
+		<Copy SourceFiles="@(AllOutputBuildFiles)" DestinationFolder="../../../../altv-server/resources/iron-core/server" SkipUnchangedFiles="false" />
+	</Target>
+</Project>
