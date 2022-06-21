@@ -10,4 +10,8 @@
 
 # How to create a plugin?
 
-# Roadmap
+# Features
+
+- [x] Server Interactions
+- [ ] Server and Client Help Text
+- [ ] Server and Client Markers
