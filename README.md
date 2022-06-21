@@ -14,4 +14,8 @@
 
 - [x] Server Interactions
 - [ ] Server and Client Help Text
+- [ ] Server and Client Text Labels
 - [ ] Server and Client Markers
+- [ ] Server and Client Objects
+- [ ] Server and Client Static Peds
+- [ ] Server and Client Native Notifications
