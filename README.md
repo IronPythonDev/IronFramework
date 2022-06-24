@@ -13,12 +13,12 @@
 # Features
 
 - [x] Server Interactions
-- [x] Server Synced Help Text
-- [ ] Server and Client Text Labels
-- [ ] Server and Client Markers
-- [ ] Server and Client Objects
-- [ ] Server and Client Static Peds
-- [ ] Server and Client Native Notifications
+- [x] Server Help Text
+- [ ] Server Text Labels
+- [ ] Server Markers
+- [ ] Server Objects
+- [ ] Server Static Peds
+- [ ] Server Native Notifications
 - [ ] WebView Controller
 
 # Plugins
