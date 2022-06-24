@@ -13,7 +13,6 @@
 # Features
 
 - [x] Server Interactions
-- [ ] Port this [chat](https://github.com/echoWanderer/altV-Chat) to csharp
 - [x] Server Synced Help Text
 - [ ] Server and Client Text Labels
 - [ ] Server and Client Markers
@@ -26,3 +25,4 @@
 
 - [ ] Discord Bot for interaction with your server(set user permissions, blacklist, access to events by user roles)
 - [ ] Authorization with Discord
+- [ ] Extened text chat [chat](https://github.com/echoWanderer/altV-Chat)
