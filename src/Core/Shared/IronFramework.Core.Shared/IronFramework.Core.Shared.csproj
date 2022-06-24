@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AltV.Net" Version="10.0.13" />
+    <PackageReference Include="IronPython.AltV.Extensions" Version="1.3.0" />
   </ItemGroup>
 
   <ItemGroup>

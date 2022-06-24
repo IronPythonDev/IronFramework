@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\Vlad\\Desktop\\altv-framework\\altv-server\\altv-server.exe",
+      "workingDirectory": "C:\\Users\\Vlad\\Desktop\\altv-framework\\altv-server",
+      "sqlDebugging": false,
+      "nativeDebugging": true
+    }
+  }
+}

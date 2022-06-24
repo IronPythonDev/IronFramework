@@ -1,4 +1,5 @@
-﻿using AltV.Net.Data;
+﻿using AltV.Net;
+using AltV.Net.Data;
 using AltV.Net.Elements.Entities;
 
 namespace IronFramework.Core.Server.Controllers.Interaction
@@ -11,11 +12,14 @@ namespace IronFramework.Core.Server.Controllers.Interaction
         {
             interaction = new Interaction
             {
-                Id = Guid.NewGuid()
+                Id = Guid.NewGuid(),
             };
         }
 
-        public Interaction Build() => interaction;
+        public Interaction Build()
+        {
+            return interaction;
+        }
 
         public IInteractionBuilder AddPosition(Position position)
         {

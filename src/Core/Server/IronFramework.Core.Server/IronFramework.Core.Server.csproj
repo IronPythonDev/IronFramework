@@ -17,10 +17,6 @@
     <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared\IronFramework.Core.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\HelpText\" />
-  </ItemGroup>
-
 	<Target Name="CopyBuildFiles" AfterTargets="build">
 		<ItemGroup>
 			<AllOutputBuildFiles Include="$(OutputPath)\**\*.*" />

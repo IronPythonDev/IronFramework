@@ -1,6 +1,7 @@
 ﻿using AltV.Net.Async;
 using AltV.Net.Data;
 using AltV.Net.Elements.Entities;
+using IronFramework.Core.Server.Controllers.HelpText;
 using IronFramework.Core.Shared.EventsNames;
 
 namespace IronFramework.Core.Server.Controllers.Interaction
@@ -23,11 +24,21 @@ namespace IronFramework.Core.Server.Controllers.Interaction
 
         public static void Add(IInteractionBuilder interactionBuilder)
         {
-            Interactions.Add(interactionBuilder.Build());
+            var interaction = interactionBuilder.Build();
+
+            foreach (var position in interaction.Positions) HelpTextController.Add(new Shared.Controllers.HelpText
+            {
+                Position = position,
+                Text = interaction.Description
+            });
+
+            Interactions.Add(interaction);
         }
         public static void TriggerPlayer(IPlayer player, Position position)
         {
-            foreach (var interaction in Interactions.Where(interaction => !interaction.Positions.Any(p => p.Distance(position) <= interaction.Range)))
+            var interactions = Interactions.Where(interaction => interaction.Positions.Any(p => p.Distance(position) <= interaction.Range));
+
+            foreach (var interaction in interactions)
                 interaction.OnInteraction(player);
         }
     }
