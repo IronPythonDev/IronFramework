@@ -14,7 +14,7 @@
 
 - [x] Server Interactions
 - [ ] Port this [chat](https://github.com/echoWanderer/altV-Chat) to csharp
-- [ ] Server and Client Help Text
+- [x] Server Synced Help Text
 - [ ] Server and Client Text Labels
 - [ ] Server and Client Markers
 - [ ] Server and Client Objects
