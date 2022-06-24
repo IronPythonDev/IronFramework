@@ -26,11 +26,7 @@ namespace IronFramework.Core.Server.Controllers.Interaction
         {
             var interaction = interactionBuilder.Build();
 
-            foreach (var position in interaction.Positions) HelpTextController.Add(new Shared.Controllers.HelpText
-            {
-                Position = position,
-                Text = interaction.Description
-            });
+            foreach (var position in interaction.Positions) HelpTextController.Add(new Shared.Controllers.HelpText(position, interaction.Description));
 
             Interactions.Add(interaction);
         }
