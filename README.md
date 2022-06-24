@@ -20,3 +20,9 @@
 - [ ] Server and Client Objects
 - [ ] Server and Client Static Peds
 - [ ] Server and Client Native Notifications
+- [ ] WebView Controller
+
+# Plugins
+
+- [ ] Discord Bot for interaction with your server(set user permissions, blacklist, access to events by user roles)
+- [ ] Authorization with Discord
