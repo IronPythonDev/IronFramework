@@ -14,12 +14,12 @@
 
 - [x] Server Interactions
 - [x] Server Help Text
-- [ ] Server Text Labels
-- [ ] Server Markers
+- [ ] Server/Client Text Labels
+- [ ] Server/Client Markers
+- [ ] Server/Client Native Notifications
 - [ ] Server Objects
 - [ ] Server Static Peds
-- [ ] Server Native Notifications
-- [ ] WebView Controller
+- [ ] Client WebView Controller
 
 # Plugins
 
