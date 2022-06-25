@@ -3,6 +3,45 @@ using AltV.Net.Data;
 
 namespace IronFramework.Core.Client.Controllers.TextLabels
 {
+    public class TextLabel
+    {
+        private uint drawTick;
+
+        public TextLabel(string text, float x, float y, int scale, int font, Rgba color)
+        {
+            Text=text;
+            X=x;
+            Y=y;
+            Scale=scale;
+            Font=font;
+            Color=color;
+        }
+
+        public string Text { get; }
+        public float X { get; }
+        public float Y { get; }
+        public int Scale { get; }
+        public int Font { get; }
+        public Rgba Color { get; }
+
+        public void Draw()
+        {
+            drawTick = Alt.EveryTick(() =>
+            {
+                Alt.Natives.BeginTextCommandDisplayText("STRING");
+                Alt.Natives.AddTextComponentSubstringPlayerName(Text);
+                Alt.Natives.SetTextFont(Font);
+                Alt.Natives.SetTextScale(1, Scale);
+                Alt.Natives.SetTextWrap(0.0F, 1.0F);
+                Alt.Natives.SetTextCentre(true);
+                Alt.Natives.SetTextColour(Color.R, Color.G, Color.B, Color.A);
+                Alt.Natives.SetTextJustification(0);
+                Alt.Natives.EndTextCommandDisplayText(X, Y, 0);
+            });
+        }
+        public void StopDraw() => Alt.ClearEveryTick(drawTick);
+    }
+
     public class TextLabelController : BaseSyncedEntityController
     {
         public TextLabelController() : base(1)
