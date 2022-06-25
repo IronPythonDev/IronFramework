@@ -12,7 +12,7 @@ namespace IronFramework.Core.Client.Controllers
             this.entityType = entityType;
         }
 
-        public IDictionary<ulong, IDictionary<string, object>> SyncedEntitiesDataCache = new Dictionary<ulong, IDictionary<string, object>>();
+        public IDictionary<ulong, (Position position, IDictionary<string, object> data)> SyncedEntitiesCache = new Dictionary<ulong, (Position, IDictionary<string, object>)>();
 
         public virtual void Init()
         {
@@ -26,13 +26,13 @@ namespace IronFramework.Core.Client.Controllers
 
         public virtual void OnCreateSyncedEntity(ulong entityId, Position position, IDictionary<string, object> data)
         {
-            SyncedEntitiesDataCache.Add(entityId, data);
-            SyncedEntitiesDataCache[entityId]["IsVisible"] = true;
+            SyncedEntitiesCache.Add(entityId, (position, data));
+            SyncedEntitiesCache[entityId].data["IsVisible"] = true;
         }
 
         public virtual void OnVisibleSyncedEntity(ulong entityId, bool isVisible)
         {
-            SyncedEntitiesDataCache[entityId]["IsVisible"] = isVisible;
+            SyncedEntitiesCache[entityId].data["IsVisible"] = isVisible;
         }
     }
 }

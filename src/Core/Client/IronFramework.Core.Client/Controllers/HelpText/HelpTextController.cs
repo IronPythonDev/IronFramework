@@ -25,7 +25,7 @@ namespace IronFramework.Core.Client.Controllers.HelpText
 
             Alt.Log($"OnVisibleSyncedEntity: {isVisible}");
 
-            if (isVisible) ShowHelpText((string)SyncedEntitiesDataCache[entityId]["Text"]);
+            if (isVisible) ShowHelpText((string)SyncedEntitiesCache[entityId].data["Text"]);
         }
         public void ShowHelpText(string text) => Alt.EmitClient("__ironCore:bridge:js:showHelpText", text, 5000);
     }
