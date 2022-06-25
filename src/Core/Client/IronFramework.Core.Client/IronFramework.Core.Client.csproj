@@ -8,12 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\TextLabels\**" />
-    <EmbeddedResource Remove="Controllers\TextLabels\**" />
-    <None Remove="Controllers\TextLabels\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AltV.Net.Client.Async" Version="11.0.11-dev" />
   </ItemGroup>
 
@@ -21,6 +15,12 @@
     <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared.Abstractions\IronFramework.Core.Shared.Abstractions.csproj" />
     <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared.EventsNames\IronFramework.Core.Shared.EventsNames.csproj" />
     <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared\IronFramework.Core.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Controllers\TextLabels\Label.rml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 	<Target Name="CopyBuildFiles" AfterTargets="build">
