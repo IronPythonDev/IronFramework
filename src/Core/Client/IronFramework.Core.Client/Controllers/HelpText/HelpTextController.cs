@@ -15,15 +15,11 @@ namespace IronFramework.Core.Client.Controllers.HelpText
         {
             base.OnCreateSyncedEntity(entityId, position, data);
 
-            Alt.Log($"OnCreateSyncedEntity");
-
             ShowHelpText((string)data["Text"]);
         }
         public override void OnVisibleSyncedEntity(ulong entityId, bool isVisible)
         {
             base.OnVisibleSyncedEntity(entityId, isVisible);
-
-            Alt.Log($"OnVisibleSyncedEntity: {isVisible}");
 
             if (isVisible) ShowHelpText((string)SyncedEntitiesCache[entityId].data["Text"]);
         }

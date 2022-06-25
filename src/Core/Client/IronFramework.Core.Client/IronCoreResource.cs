@@ -10,8 +10,8 @@ namespace IronFramework.Core.Client
         public override void OnStart()
         {
             InteractionController.Init();
-            new HelpTextController().Init();
-            new TextLabelController().Init();
+            new HelpTextController();
+            new TextLabelController();
         }
 
         public override void OnStop()

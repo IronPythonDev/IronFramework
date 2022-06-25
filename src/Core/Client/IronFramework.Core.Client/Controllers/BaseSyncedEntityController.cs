@@ -10,6 +10,8 @@ namespace IronFramework.Core.Client.Controllers
         public BaseSyncedEntityController(uint entityType)
         {
             this.entityType = entityType;
+
+            Init();
         }
 
         public IDictionary<ulong, (Position position, IDictionary<string, object> data)> SyncedEntitiesCache = new Dictionary<ulong, (Position, IDictionary<string, object>)>();
