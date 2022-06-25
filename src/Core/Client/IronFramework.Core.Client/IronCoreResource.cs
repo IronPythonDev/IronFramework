@@ -1,6 +1,7 @@
 ﻿using AltV.Net.Client.Async;
 using IronFramework.Core.Client.Controllers.HelpText;
 using IronFramework.Core.Client.Controllers.Interaction;
+using IronFramework.Core.Client.Controllers.TextLabels;
 
 namespace IronFramework.Core.Client
 {
@@ -10,6 +11,7 @@ namespace IronFramework.Core.Client
         {
             InteractionController.Init();
             new HelpTextController().Init();
+            new TextLabelController().Init();
         }
 
         public override void OnStop()
