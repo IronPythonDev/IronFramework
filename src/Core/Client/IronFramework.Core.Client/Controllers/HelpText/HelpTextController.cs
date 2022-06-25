@@ -1,23 +1,64 @@
 ﻿using AltV.Net.Client;
-using IronFramework.Core.Shared.EventsNames;
-using IronFramework.Core.Shared.Extensions;
+using AltV.Net.Data;
+using System.Text.Json;
 
 namespace IronFramework.Core.Client.Controllers.HelpText
 {
-
-    public static class HelpTextController
+    public abstract class BaseSyncedEntityController
     {
-        static IList<Shared.Controllers.HelpText> HelpTexts { get; set; } = new List<Shared.Controllers.HelpText>();
+        private readonly uint entityType;
 
-        public static void Init()
+        public BaseSyncedEntityController(uint entityType)
         {
-            Alt.OnServer<IDictionary<string, object>>(ClientEvents.HELPTEXT_CONTROLLER_CREATE_TEXT_EVENT, (helpText) => Task.Run(() => Add(helpText.ToObject<Shared.Controllers.HelpText>())));
+            this.entityType = entityType;
         }
 
-        public static void Add(Shared.Controllers.HelpText helpText)
+        public IDictionary<ulong, IDictionary<string, object>> SyncedEntitiesDataCache = new Dictionary<ulong, IDictionary<string, object>>();
+
+        public virtual void Init()
         {
-            Alt.Log($"New help text -> Text: {helpText.Text}, Position -> X: {helpText.Position.X}, Y: {helpText.Position.Y}, Z: {helpText.Position.Z}");
-            HelpTexts.Add(helpText);
+            Alt.OnServer<ulong, int, Position, IDictionary<string, object>>("entitySync:create",
+                (entityId, entityType, position, data) => { if (entityType == this.entityType) Task.Run(() => OnCreateSyncedEntity(entityId, position, data)); });
+            Alt.OnServer<ulong, int>("entitySync:create",
+                (entityId, entityType) => { if (entityType == this.entityType) Task.Run(() => OnVisibleSyncedEntity(entityId, true)); });
+            Alt.OnServer<ulong, int>("entitySync:remove",
+                (entityId, entityType) => { if (entityType == this.entityType) Task.Run(() => OnVisibleSyncedEntity(entityId, false)); });
         }
+
+        public virtual void OnCreateSyncedEntity(ulong entityId, Position position, IDictionary<string, object> data)
+        {
+            SyncedEntitiesDataCache.Add(entityId, data);
+            SyncedEntitiesDataCache[entityId]["IsVisible"] = true;
+        }
+
+        public virtual void OnVisibleSyncedEntity(ulong entityId, bool isVisible)
+        {
+            SyncedEntitiesDataCache[entityId]["IsVisible"] = isVisible;
+        }
+    }
+
+    public class HelpTextController : BaseSyncedEntityController
+    {
+        public HelpTextController() : base(3)
+        {
+        }
+
+        public override void OnCreateSyncedEntity(ulong entityId, Position position, IDictionary<string, object> data)
+        {
+            base.OnCreateSyncedEntity(entityId, position, data);
+
+            Alt.Log($"OnCreateSyncedEntity");
+
+            ShowHelpText((string)data["Text"]);
+        }
+        public override void OnVisibleSyncedEntity(ulong entityId, bool isVisible)
+        {
+            base.OnVisibleSyncedEntity(entityId, isVisible);
+
+            Alt.Log($"OnVisibleSyncedEntity: {isVisible}");
+
+            if (isVisible) ShowHelpText((string)SyncedEntitiesDataCache[entityId]["Text"]);
+        }
+        public void ShowHelpText(string text) => Alt.EmitClient("__ironCore:bridge:js:showHelpText", text, 5000);
     }
 }

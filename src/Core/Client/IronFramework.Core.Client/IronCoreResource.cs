@@ -9,12 +9,12 @@ namespace IronFramework.Core.Client
         public override void OnStart()
         {
             InteractionController.Init();
-            HelpTextController.Init();
+            new HelpTextController().Init();
         }
 
         public override void OnStop()
         {
-            
+
         }
     }
 }
