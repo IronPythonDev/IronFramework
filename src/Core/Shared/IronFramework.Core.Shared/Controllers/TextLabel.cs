@@ -6,9 +6,9 @@ using System.Numerics;
 
 namespace IronFramework.Core.Shared.Controllers
 {
-    public class TextLabel : Entity, IWritable
+    public class World3DTextLabel : Entity, IWritable
     {
-        public TextLabel(string text, Vector3 position, Rgba? color = null, int dimension = 0, uint range = 1) : base(1, position, dimension, range)
+        public World3DTextLabel(string text, Vector3 position, Rgba? color = null, int dimension = 0, uint range = 1) : base(1, position, dimension, range)
         {
             Text = text;
             Color = color;

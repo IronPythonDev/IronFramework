@@ -42,9 +42,9 @@ namespace IronFramework.Core.Client.Controllers.TextLabels
         public void StopDraw() => Alt.ClearEveryTick(drawTick);
     }
 
-    public class TextLabelController : BaseSyncedEntityController
+    public class World3DTextLabelController : BaseSyncedEntityController
     {
-        public TextLabelController() : base(1)
+        public World3DTextLabelController() : base(1)
         {
             Alt.EveryTick(StartDrawTick);
         }

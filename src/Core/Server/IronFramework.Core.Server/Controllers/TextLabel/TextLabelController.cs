@@ -2,9 +2,9 @@
 
 namespace IronFramework.Core.Server.Controllers.TextLabel
 {
-    public static class TextLabelController
+    public static class World3DTextLabelController
     {
-        public static void Add(Shared.Controllers.TextLabel textLabel)
+        public static void Add(Shared.Controllers.World3DTextLabel textLabel)
         {
             AltEntitySync.AddEntity(textLabel);
         }

@@ -11,7 +11,7 @@ namespace IronFramework.Core.Client
         {
             InteractionController.Init();
             new HelpTextController();
-            new TextLabelController();
+            new World3DTextLabelController();
         }
 
         public override void OnStop()
