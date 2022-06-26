@@ -3,24 +3,24 @@ using AltV.Net.Data;
 
 namespace IronFramework.Core.Client.Controllers.TextLabels
 {
-    public class TextLabel
+    public class ScreenTextLabel
     {
         private uint drawTick;
 
-        public TextLabel(string text, float x, float y, int scale, int font, Rgba color)
+        public ScreenTextLabel(string text, float x, float y, float scale, int font, Rgba color)
         {
-            Text=text;
-            X=x;
-            Y=y;
-            Scale=scale;
-            Font=font;
-            Color=color;
+            Text = text;
+            X = x;
+            Y = y;
+            Scale = scale;
+            Font = font;
+            Color = color;
         }
 
         public string Text { get; }
         public float X { get; }
         public float Y { get; }
-        public int Scale { get; }
+        public float Scale { get; }
         public int Font { get; }
         public Rgba Color { get; }
 
@@ -31,20 +31,22 @@ namespace IronFramework.Core.Client.Controllers.TextLabels
                 Alt.Natives.BeginTextCommandDisplayText("STRING");
                 Alt.Natives.AddTextComponentSubstringPlayerName(Text);
                 Alt.Natives.SetTextFont(Font);
-                Alt.Natives.SetTextScale(1, Scale);
+                Alt.Natives.SetTextScale(Scale, Scale);
                 Alt.Natives.SetTextWrap(0.0F, 1.0F);
                 Alt.Natives.SetTextCentre(true);
                 Alt.Natives.SetTextColour(Color.R, Color.G, Color.B, Color.A);
                 Alt.Natives.SetTextJustification(0);
+                Alt.Natives.SetTextDropShadow();
+                Alt.Natives.SetTextOutline();
                 Alt.Natives.EndTextCommandDisplayText(X, Y, 0);
             });
         }
         public void StopDraw() => Alt.ClearEveryTick(drawTick);
     }
 
-    public class World3DTextLabelController : BaseSyncedEntityController
+    public class TextLabelController : BaseSyncedEntityController
     {
-        public World3DTextLabelController() : base(1)
+        public TextLabelController() : base(1)
         {
             Alt.EveryTick(StartDrawTick);
         }
@@ -79,6 +81,13 @@ namespace IronFramework.Core.Client.Controllers.TextLabels
                 Alt.Natives.EndTextCommandDisplayText(0, 0, 0);
                 Alt.Natives.ClearDrawOrigin();
             }
+        }
+
+        public static ScreenTextLabel Create2DTextLabel(ScreenTextLabel label)
+        {
+            label.Draw();
+
+            return label;
         }
     }
 }

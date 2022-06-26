@@ -2,7 +2,7 @@
 
 namespace IronFramework.Core.Server.Controllers.TextLabel
 {
-    public static class World3DTextLabelController
+    public static class TextLabelController
     {
         public static void Add(Shared.Controllers.World3DTextLabel textLabel)
         {

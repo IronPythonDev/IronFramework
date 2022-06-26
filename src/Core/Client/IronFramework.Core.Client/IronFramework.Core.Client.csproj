@@ -17,15 +17,6 @@
     <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared\IronFramework.Core.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Controllers\TextLabels\Fonts\Inter-Bold.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Controllers\TextLabels\Label.rml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 	<Target Name="CopyBuildFiles" AfterTargets="build">
 		<ItemGroup>
 			<AllOutputBuildFiles Include="$(OutputPath)\**\*.*" />

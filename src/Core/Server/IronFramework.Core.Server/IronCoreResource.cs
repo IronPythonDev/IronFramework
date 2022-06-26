@@ -39,8 +39,8 @@ namespace IronFramework.Core.Server
                 .AddPosition(new AltV.Net.Data.Position(0, 0, 71))
                 .AddHandler((p) => Alt.Log($"Interaction: {p.Name}")));
 
-            World3DTextLabelController.Add(new Shared.Controllers.World3DTextLabel("Vlad1234", new System.Numerics.Vector3(0, 0, 71)) { Scale = 0.4f } );
-            World3DTextLabelController.Add(new Shared.Controllers.World3DTextLabel("Simple Text", new System.Numerics.Vector3(-12.519726753234863f, 5.703808307647705f, 72f), range: 5) { Scale = 0.4f });
+            TextLabelController.Add(new Shared.Controllers.World3DTextLabel("Vlad1234", new System.Numerics.Vector3(0, 0, 71)) { Scale = 0.4f } );
+            TextLabelController.Add(new Shared.Controllers.World3DTextLabel("Simple Text", new System.Numerics.Vector3(-12.519726753234863f, 5.703808307647705f, 72f), range: 5) { Scale = 0.4f });
         }
 
         public override void OnStop()
