@@ -4,6 +4,7 @@ using AltV.Net.EntitySync;
 using AltV.Net.EntitySync.ServerEvent;
 using AltV.Net.EntitySync.SpatialPartitions;
 using IronFramework.Core.Server.Controllers.Interaction;
+using IronFramework.Core.Server.Controllers.TextLabel;
 
 namespace IronFramework.Core.Server
 {
@@ -37,6 +38,9 @@ namespace IronFramework.Core.Server
                 .SetRange(2)
                 .AddPosition(new AltV.Net.Data.Position(0, 0, 71))
                 .AddHandler((p) => Alt.Log($"Interaction: {p.Name}")));
+
+            TextLabelController.Add(new Shared.Controllers.World3DTextLabel("Vlad1234", new System.Numerics.Vector3(0, 0, 71)) { Scale = 0.4f } );
+            TextLabelController.Add(new Shared.Controllers.World3DTextLabel("Simple Text", new System.Numerics.Vector3(-12.519726753234863f, 5.703808307647705f, 72f), range: 5) { Scale = 0.4f });
         }
 
         public override void OnStop()
