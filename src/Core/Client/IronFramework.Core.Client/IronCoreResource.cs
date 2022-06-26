@@ -14,7 +14,6 @@ namespace IronFramework.Core.Client
 
             new HelpTextController();
             new TextLabelController();
-            new TextLabelController();
 
             Alt.OnPlayerSpawn += () =>
             {
