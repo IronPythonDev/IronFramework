@@ -14,7 +14,7 @@
 
 - [x] Server Interactions
 - [x] Server Help Text
-- [ ] Server/Client Text Labels
+- [x] Server/Client Text Labels
 - [ ] Server/Client Markers
 - [ ] Server/Client Native Notifications
 - [ ] Server Objects
