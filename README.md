@@ -23,6 +23,7 @@
 
 # Plugins
 
+- [ ] Freeroam plugin gamemode
 - [ ] Discord Bot for interaction with your server(set user permissions, blacklist, access to events by user roles)
 - [ ] Authorization with Discord
 - [ ] Extened text chat [chat](https://github.com/echoWanderer/altV-Chat)
