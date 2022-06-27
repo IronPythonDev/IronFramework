@@ -11,17 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{6F3D3E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E97D503D-F438-4EA2-B22D-24CBEE30BDD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.Core.Server", "Core\Server\IronFramework.Core.Server\IronFramework.Core.Server.csproj", "{80279E75-4564-4AEA-95A4-609C050A7E8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronFramework.Core.Server", "Core\Server\IronFramework.Core.Server\IronFramework.Core.Server.csproj", "{80279E75-4564-4AEA-95A4-609C050A7E8D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{C01CD5F8-2EB0-4866-9F40-16FEC7714E6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronFramework.Core.Shared", "Core\Shared\IronFramework.Core.Shared\IronFramework.Core.Shared.csproj", "{D16AAE8A-C5AC-4110-BADF-E4B0FDE7C204}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.Core.Shared", "Core\Shared\IronFramework.Core.Shared\IronFramework.Core.Shared.csproj", "{D16AAE8A-C5AC-4110-BADF-E4B0FDE7C204}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronFramework.Core.Shared.Abstractions", "Core\Shared\IronFramework.Core.Shared.Abstractions\IronFramework.Core.Shared.Abstractions.csproj", "{8C246752-6F0D-4F5D-9A2F-8E55B607BC4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.Core.Shared.Abstractions", "Core\Shared\IronFramework.Core.Shared.Abstractions\IronFramework.Core.Shared.Abstractions.csproj", "{8C246752-6F0D-4F5D-9A2F-8E55B607BC4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronFramework.Core.Shared.EventsNames", "Core\Shared\IronFramework.Core.Shared.EventsNames\IronFramework.Core.Shared.EventsNames.csproj", "{C7F38389-3FE7-4EA8-9F80-E417599852B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.Core.Shared.EventsNames", "Core\Shared\IronFramework.Core.Shared.EventsNames\IronFramework.Core.Shared.EventsNames.csproj", "{C7F38389-3FE7-4EA8-9F80-E417599852B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronFramework.Core.Client", "Core\Client\IronFramework.Core.Client\IronFramework.Core.Client.csproj", "{957174E2-1AAA-4945-8BD9-5AC447F40F5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IronFramework.Core.Client", "Core\Client\IronFramework.Core.Client\IronFramework.Core.Client.csproj", "{957174E2-1AAA-4945-8BD9-5AC447F40F5E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{2DBC588F-7834-4A9A-BCDF-6EFAEAFD8799}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IronFramework.Core.Plugin", "Core\Plugin\IronFramework.Core.Plugin\IronFramework.Core.Plugin.csproj", "{E95997C8-EFBA-4656-8ED2-FB36A2CFCF52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{8338B350-B7FF-42BE-A30A-0775720FD217}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{957174E2-1AAA-4945-8BD9-5AC447F40F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{957174E2-1AAA-4945-8BD9-5AC447F40F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{957174E2-1AAA-4945-8BD9-5AC447F40F5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E95997C8-EFBA-4656-8ED2-FB36A2CFCF52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95997C8-EFBA-4656-8ED2-FB36A2CFCF52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E95997C8-EFBA-4656-8ED2-FB36A2CFCF52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E95997C8-EFBA-4656-8ED2-FB36A2CFCF52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +70,8 @@ Global
 		{8C246752-6F0D-4F5D-9A2F-8E55B607BC4A} = {6F3D3EDD-86D4-4CB1-BD7E-998BE276E78D}
 		{C7F38389-3FE7-4EA8-9F80-E417599852B3} = {6F3D3EDD-86D4-4CB1-BD7E-998BE276E78D}
 		{957174E2-1AAA-4945-8BD9-5AC447F40F5E} = {D41451BE-9F37-43BA-ADC7-2D54D98956BD}
+		{2DBC588F-7834-4A9A-BCDF-6EFAEAFD8799} = {E97D503D-F438-4EA2-B22D-24CBEE30BDD9}
+		{E95997C8-EFBA-4656-8ED2-FB36A2CFCF52} = {2DBC588F-7834-4A9A-BCDF-6EFAEAFD8799}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {691F9841-41EF-4E63-ABFE-FFF0581C36A7}
