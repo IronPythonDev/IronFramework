@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AltV.Net.Async" Version="10.0.13" />
+    <PackageReference Include="AltV.Net.EntitySync" Version="1.18.0" />
+    <PackageReference Include="AltV.Net.EntitySync.ServerEvent" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Plugin\IronFramework.Core.Plugin\IronFramework.Core.Plugin.csproj" />
+    <ProjectReference Include="..\IronFramework.Core.Server\IronFramework.Core.Server.csproj" />
+    <ProjectReference Include="..\..\..\Plugins\IronPython.Freeroam\IronPython.Freeroam.Server\IronPython.Freeroam.Server.csproj" />
+  </ItemGroup>
+
+	<Target Name="CopyBuildFiles" AfterTargets="build">
+		<ItemGroup>
+			<AllOutputBuildFiles Include="$(OutputPath)\**\*.*" />
+		</ItemGroup>
+
+		<Copy SourceFiles="@(AllOutputBuildFiles)" DestinationFolder="../../../../altv-server/resources/iron-core/server" SkipUnchangedFiles="false" />
+	</Target>
+</Project>
