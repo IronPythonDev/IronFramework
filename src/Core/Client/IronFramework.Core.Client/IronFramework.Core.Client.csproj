@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,17 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Plugin\IronFramework.Core.Plugin\IronFramework.Core.Plugin.csproj" />
     <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared.Abstractions\IronFramework.Core.Shared.Abstractions.csproj" />
     <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared.EventsNames\IronFramework.Core.Shared.EventsNames.csproj" />
     <ProjectReference Include="..\..\Shared\IronFramework.Core.Shared\IronFramework.Core.Shared.csproj" />
   </ItemGroup>
-
-	<Target Name="CopyBuildFiles" AfterTargets="build">
-		<ItemGroup>
-			<AllOutputBuildFiles Include="$(OutputPath)\**\*.*" />
-		</ItemGroup>
-
-		<Copy SourceFiles="@(AllOutputBuildFiles)" DestinationFolder="../../../../altv-server/resources/iron-core/client" SkipUnchangedFiles="false" />
-	</Target>
 </Project>

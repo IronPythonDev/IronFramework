@@ -5,7 +5,7 @@ using IronFramework.Core.Client.Controllers.Interaction;
 using IronFramework.Core.Client.Controllers.TextLabels;
 using IronFramework.Core.Plugin;
 
-namespace IronFramework.Core.Client
+namespace IronFramework.Core.Client.Resource
 {
     public partial class IronCoreResource : AsyncResource
     {
